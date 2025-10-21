@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UNIT TEST 1</title>
+<style>
+  body {font-family: Arial; background: #f9f9f9; margin: 0; padding: 0; display: flex; justify-content: center; align-items: center; height: 100vh;}
+  #exam-box {display: none; background: white; padding: 20px; border-radius: 10px; width: 90%; max-width: 700px; box-shadow: 0 0 10px rgba(0,0,0,0.2); overflow-y: auto; max-height: 90vh;}
+  h2 {text-align: center;}
+  .question {margin: 15px 0;}
+  button {padding: 10px 15px; border: none; border-radius: 5px; background: #007bff; color: white; cursor: pointer;}
+  button:hover {background: #0056b3;}
+</style>
+</head>
+<body>
+  <button id="startBtn">Start UNIT TEST 1</button>
+
+  <div id="exam-box">
+    <h2>UNIT TEST 1</h2>
+    <form id="examForm">
+      <div class="question">
+        <p>1. What is the best indicator that you have successfully assembled a computer?</p>
+        <label><input type="radio" name="q1" value="d"> The PC is able to boot up to the BIOS.</label><br>
+        <label><input type="radio" name="q1" value="a"> You are able to close the system case cover.</label><br>
+        <label><input type="radio" name="q1" value="b"> All wires are connected and the lights blink when turned on.</label><br>
+        <label><input type="radio" name="q1" value="c"> There is a beeping sound as you turn it on.</label>
+      </div>
+
+      <div class="question">
+        <p>2. These are the most common ports used by monitors to produce best video qualities EXCEPT FOR</p>
+        <label><input type="radio" name="q2" value="c"> RPS</label><br>
+        <label><input type="radio" name="q2" value="a"> HDMI</label><br>
+        <label><input type="radio" name="q2" value="b"> DVI</label><br>
+        <label><input type="radio" name="q2" value="d"> VGA</label>
+      </div>
+
+      <div class="question">
+        <p>3. These are the most necessary peripherals you should connect to your system unit to be able to run the computer easily.</p>
+        <label><input type="radio" name="q3" value="b"> Keyboard, Mouse, Monitor</label><br>
+        <label><input type="radio" name="q3" value="a"> Speakers, Printer</label><br>
+        <label><input type="radio" name="q3" value="c"> Joystick, Headphones, Speakers</label><br>
+        <label><input type="radio" name="q3" value="d"> Scanner, Mouse, Webcam</label>
+      </div>
+
+      <div class="question">
+        <p>4. When these are being installed in their slots, you should push these down properly to align it to the slots until you hear a click when the tabs lock.</p>
+        <label><input type="radio" name="q4" value="c"> Random Access Memory</label><br>
+        <label><input type="radio" name="q4" value="a"> CPU Fan</label><br>
+        <label><input type="radio" name="q4" value="b"> Central Processing Unit</label><br>
+        <label><input type="radio" name="q4" value="d"> Power Supply Unit</label>
+      </div>
+
+      <div class="question">
+        <p>5. When wearing the anti-static wrist wrap, where should the other end be clipped onto?</p>
+        <label><input type="radio" name="q5" value="a"> Unpainted part of the case</label><br>
+        <label><input type="radio" name="q5" value="b"> Standoffs of the case</label><br>
+        <label><input type="radio" name="q5" value="c"> Any screw</label><br>
+        <label><input type="radio" name="q5" value="d"> I/O Bezel Plate</label>
+      </div>
+
+      <div class="question">
+        <p>6. After removing the CPU, add thermal paste on the pins before putting it back.</p>
+        <label><input type="radio" name="q6" value="false"> False</label><br>
+        <label><input type="radio" name="q6" value="true"> True</label>
+      </div>
+
+      <div class="question">
+        <p>7. The following are wirings from the power supply connected to the motherboard EXCEPT FOR:</p>
+        <label><input type="radio" name="q7" value="a"> 2-pin power connector</label><br>
+        <label><input type="radio" name="q7" value="b"> 24-pin ATX power connector</label><br>
+        <label><input type="radio" name="q7" value="c"> SATA power connector</label>
+      </div>
+
+      <div class="question">
+        <p>8. After disassembling a computer, what do you do before re-assembling?</p>
+        <label><input type="radio" name="q8" value="d"> Put them away in a clean and secure box</label><br>
+        <label><input type="radio" name="q8" value="a"> Note the specifications</label><br>
+        <label><input type="radio" name="q8" value="b"> Use a sanitized moist cloth and wipe the components</label><br>
+        <label><input type="radio" name="q8" value="c"> Let them dry through the air conditioner</label>
+      </div>
+
+      <div class="question">
+        <p>9. Ideally, what is the LAST component that you take out in disassembly?</p>
+        <label><input type="radio" name="q9" value="d"> CPU Fan</label><br>
+        <label><input type="radio" name="q9" value="a"> RAM</label><br>
+        <label><input type="radio" name="q9" value="b"> Power Supply Connectors</label><br>
+        <label><input type="radio" name="q9" value="c"> CPU</label>
+      </div>
+
+      <div class="question">
+        <p>10. Before assembling, you should clean the components and add thermal paste to the heat sink and processor.</p>
+        <label><input type="radio" name="q10" value="true"> True</label><br>
+        <label><input type="radio" name="q10" value="false"> False</label>
+      </div>
+
+      <button type="button" onclick="submitExam()">Submit</button>
+    </form>
+  </div>
+
+  <script>
+    const startBtn = document.getElementById('startBtn');
+    const examBox = document.getElementById('exam-box');
+
+    startBtn.addEventListener('click', async () => {
+      await document.documentElement.requestFullscreen();
+      startBtn.style.display = 'none';
+      examBox.style.display = 'block';
+    });
+
+    document.addEventListener('fullscreenchange', () => {
+      if (!document.fullscreenElement) {
+        alert('You exited fullscreen. Exam ended.');
+        location.reload();
+      }
+    });
+
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) {
+        alert('You switched tabs. Exam ended.');
+        location.reload();
+      }
+    });
+
+    function submitExam() {
+      alert('Exam submitted!');
+      document.exitFullscreen();
+      location.reload();
+    }
+  </script>
+</body>
+</html>
